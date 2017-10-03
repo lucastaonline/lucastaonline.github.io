@@ -1,0 +1,36 @@
+@charset "UTF-8";
+body {
+	background: url("../BACKGROUND.png") no-repeat center top fixed;
+	background-size: cover;
+}
+
+body img#nha1 {
+	top: 8%;
+	left: 40%;
+	position: fixed;
+	opacity: 0;
+
+}
+
+body img#nha1:hover {
+	opacity: 1;
+}
+
+body img#nha2 {
+	left: 64%;
+	top: 43%;
+	position: fixed;
+	opacity: 0;
+}
+
+body img#nha2:hover {
+	opacity: 1;
+}
+
+body img#sad {
+	position: fixed;
+	width : 50px;
+	weight :  50px;
+	left: 0%;
+	top: 95%;
+}
