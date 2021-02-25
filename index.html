@@ -1,107 +1,54 @@
-<!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8"/>
-		<title>Nháá</title>
-		<link rel="stylesheet" href="css/style.css"/>
-	</head>
-	<body>
-		<script language="JavaScript">
-			var x = 1;
-			var y = 0;
-			var z = 0;
-			var w = 0; // PLAY
-			var c = 1;
-			var b = 0;
-			var n = 0;
-			var m = 0; // PLAY 2
-			var f = 1;
-			var g = 0;
-			var h = 0;
-			var j = 0; // PLAY 3
-			function play () {
-				if(x == 1) {
-					document.getElementById("som").src="nhaaa1.mp3";
-					x=0;
-					y=1;
-				}
-				else if(y==1) {
-					document.getElementById("som2").src="nhaaa1.mp3";
-					y=0;
-					z=1;
-				}
-				else if(z == 1) {
-					document.getElementById("som3").src="nhaaa1.mp3";
-					z=0;
-					w=1;
-				}
-				else if(w == 1) {
-					document.getElementById("som4").src="nhaaa1.mp3";
-					w=0;
-					x=1;
-				}
-			}
-			function play2 () {
-				if(c == 1) {
-					document.getElementById("som5").src="nhaa2.mp3";
-					c=0;
-					b=1;
-				}
-				else if(b==1) {
-					document.getElementById("som6").src="nhaa2.mp3";
-					b=0;
-					n=1;
-				}
-				else if(n == 1) {
-					document.getElementById("som7").src="nhaa2.mp3";
-					n=0;
-					m=1;
-				}
-				else if(m == 1) {
-					document.getElementById("som8").src="nhaa2.mp3";
-					m=0;
-					c=1;
-				}
-			}
-			function play3 () {
-				if(f == 1) {
-					document.getElementById("som9").src="sapo/oqosapo.mp3";
-					f=0;
-					g=1;
-				}
-				else if(g == 1) {
-					document.getElementById("som10").src="sapo/aaaaaaaa.mp3";
-					g=0;
-					h=1;
-				}
-				else if(h == 1) {
-					document.getElementById("som11").src="sapo/WATAFAK.mp3";
-					h=0;
-					j=1;
-				}
-				else if(j == 1) {
-					document.getElementById("som12").src="sapo/fdp.mp3";
-					j=0;
-					f=1;
-				}
-			}
-		</script>
-		<img src="perfeito.png" id="nha1" onmouseover="play()"/>
-		<audio id="som" src=""  autoplay="false" controls="controls" hidden="false"></audio>
-		<audio id="som2" src=""  autoplay="false" controls="controls" hidden="false" ></audio>
-		<audio id="som3" src=""  autoplay="false" controls="controls" hidden="false" ></audio>
-		<audio id="som4" src=""  autoplay="false" controls="controls" hidden="false" ></audio>
-		<img src="perfeito2.png" id="nha2" onmouseover="play2()"/>
-		<audio id="som5" src=""  autoplay="false" controls="controls" hidden="false"></audio>
-		<audio id="som6" src=""  autoplay="false" controls="controls" hidden="false" ></audio>
-		<audio id="som7" src=""  autoplay="false" controls="controls" hidden="false" ></audio>
-		<audio id="som8" src=""  autoplay="false" controls="controls" hidden="false" ></audio>
-		<img src="sad-nice-frog.jpg" id="sad" onmouseover="play3()"/>
-		<audio id="som9" src=""  autoplay="false" controls="controls" hidden="false"></audio>
-		<audio id="som10" src=""  autoplay="false" controls="controls" hidden="false" ></audio>
-		<audio id="som11" src=""  autoplay="false" controls="controls" hidden="false" ></audio>
-		<audio id="som12" src=""  autoplay="false" controls="controls" hidden="false" ></audio>
-
-
-	</body>
+    <head>
+        <link rel="stylesheet"  href="content/bootstrap/css/bootstrap.css">
+        <script src="content/bootstrap/js/bootstrap.min.js"></script>
+        <script src="content/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="js/jquery.js"></script>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <main>
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col">
+                    </div>
+                    <div class="col">
+                        <h1>Bem-vindo(a) à meu mundo!</h1>
+                        <div class="card" style="width: 45rem;">
+                            <img src="content/capa_do_site.jpeg" class="card-img-top" alt="Só eu mesmo!">
+                            <div class="card-body">
+                              <h5 class="card-title">Feito por: Lucas Borges Pereira</h5>
+                              <p class="card-text">Aqui irei guardar uma lista de todos os meus sites pequenos e ideias que tenho pra me divertir, entreter ou ajudar alguém &lt;3.</p>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                              <li class="list-group-item"><a href="Sapinhos/index.html">Sapinhos (Meu primeiro site)</a></li>
+                              <li class="list-group-item"><a href="Asteriscador/index.html">Asteriscador</a></li>
+                            </ul>
+                            <div class="card-body">
+                              <button 
+                              id="legal" 
+                              type="button"
+                              class="btn btn-primary" 
+                              data-bs-toggle="popover" 
+                              data-bs-trigger="focus"
+                              title="Toma aí" 
+                              data-bs-content="👍🏾">
+                                  Clique aqui pra ganhar um legal!
+                                </a>
+                            </div>
+                          </div>
+                    </div>
+                    <div class="col">
+                    </div>
+                  </div>    
+            </div>
+        </main>
+    </body>
 </html>
+
+<script>
+    var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+    var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+    return new bootstrap.Popover(popoverTriggerEl)
+    })
+</script>
