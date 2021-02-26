@@ -7,24 +7,113 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="py-5 text-center container">
         <div class="row">
-            <h1 class="bd-title">Asteriscad*r</h1>
-            <p class="bs-lead">Teste</p>
+            <h1 class="fw-light">Asteriscad*r</h1>
+            <p class="lead text-muted">Bem-vindo ao site onde você pode asteriscar seu texto. É totalmente de graça e sem anúncios. Aproveitem =D</p>
+            <p class="lead text-muted">Idealizado e desenvolvido por: Lucas Borges Pereira - 25/02/2021</p>
         </div>
     </div>
 
-    <div class="row">
-        <div class="col">
-            <div class="form-control">
-                <label>Digita aí!</label>
-                <input class="form-control" placeholder="Digite o texto para ser asteriscad*!" />
+    <div id="app" class="container">
+        <div class="bg-light p-5 rounded">
+            <div v-if="textoResultante == null">
+                <div class="form-group mb-3">
+                    <label>Digita aí!</label>
+                    <textarea class="form-control" placeholder="Digite o texto para ser asteriscad*!" v-model="textoFonte" v-on:input="atualizarPalavras"></textarea>
+                </div>
+                <div class="form-check mb-3">
+                    <input id="asteriscar-tudo" type="radio" class="form-check-input" v-model="modoAsterisco" value="asteriscar-tudo">
+                    <label class="form-check-label" for="asteriscar-tudo">Asterisque tudo!</label>
+                </div>
+                <div class="form-group mb-3">
+                    <div class="form-check">
+                        <input id="asteriscar-palavras-selecionadas" type="radio" class="form-check-input" v-model="modoAsterisco" value="asteriscar-palavras-selecionadas">
+                        <label class="form-check-label" for="asteriscar-palavras-selecionadas">Asterisque somente as palavras que eu
+                            selecionar!</label>
+                    </div>
+                    <div v-if="modoAsterisco == 'asteriscar-palavras-selecionadas'" style="font-size: 1.3rem !important;">
+                        <span 
+                            style="margin: 0.3rem;cursor: pointer;"
+                            v-for="palavra in palavras" 
+                            :class="['badge', palavra.asteriscar? 'bg-primary' : 'bg-light text-dark' ]" 
+                            v-on:click="palavra.asteriscar = !palavra.asteriscar">
+                            {{ palavra.valor }}
+                        </span>
+                    </div>
+                </div>
+                <button class="btn btn-primary" v-on:click="asteriscar">Asteriscar!</button>
+            </div>
+            <div v-else>
+                <div class="form-group mb-3">
+                    <label>Toma aí seu texto asteriscado. (*** ***** **?)</label>
+                    <textarea id="texto-resultante" class="form-control" v-model="textoResultante" readonly></textarea>
+                </div>
+                <button class="btn btn-primary" v-on:click="jogaNoCopiar">Joga no meu CTRL-C aí na moral!</button>
+                <button class="btn btn-primary" v-on:click="resetarFormulario">Asteriscar novamente!</button>
             </div>
         </div>
     </div>
 </body>
 <script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            modoAsterisco: "asteriscar-tudo",
+            palavras: [],
+            textoFonte: "",
+            textoResultante: null
+        },
+        mounted: function () {
+            console.log("%cIdealizado e desenvolvido por: Lucas Borges Pereira - 25/02/2021", 'background: #000000; color: #00ff08');
+            console.log("%cTrabalho atualmente como analista de sistemas. O pai é quente!", 'background: #000000; color: #00ff08');
+            console.log("%cSe gostou do app e quer me fazer um agrado me manda um Pix: b8ad3556-7fa7-467c-865b-b9f798bdfa99", 'background: #000000; color: #00ff08');
+        },
+        methods: {
+            atualizarPalavras() {
+                var palavras = this.textoFonte.split(" ");
 
+                this.palavras = [];
+
+                palavras.forEach((x, i) => {
+                    if(x.length != null && x.length > 0)
+                        this.palavras.push({
+                            valor: x,
+                            asteriscar: true
+                        });
+                });
+            },
+            asteriscar() {
+                this.textoResultante = "";
+
+                this.palavras.forEach((x, i) => {
+                    if(i != 0)
+                        this.textoResultante += " ";
+
+                    if(x.asteriscar || this.modoAsterisco == "asteriscar-tudo") {
+                        var stringConvertida = "";
+
+                        for(var j = 0; j < x.valor.length; j++) {
+                            stringConvertida += "*"
+                        }
+
+                        this.textoResultante += stringConvertida;
+                    }
+                    else {
+                        this.textoResultante += x.valor;
+                    }
+                });
+            },
+            jogaNoCopiar() {
+                $("#texto-resultante").select();
+                document.execCommand("copy");
+                document.getSelection().removeAllRanges();
+            },
+            resetarFormulario() {
+                this.textoResultante = null;
+            }
+        }
+    })
 </script>
 
 </html>
