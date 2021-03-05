@@ -64,7 +64,7 @@
                 <div class="form-check mb-3">
                     <input id="asteriscar-custom" type="checkbox" class="form-check-input" v-model="asteriscarCustom">
                     <label class="form-check-label" for="asteriscar-custom">Não quero que substitua por "*". Quero que substitua por outra coisa!</label>
-                    <input class="form-control" v-model="customCharacter" :disabled="asteriscarCustom == false" /> 
+                    <input class="form-control" v-model="custom" :disabled="asteriscarCustom == false" /> 
                 </div>
                 <button class="btn btn-primary" v-on:click="asteriscar">Asteriscar!</button>
             </div>
@@ -85,7 +85,7 @@
         data: {
             modoAsterisco: "asteriscar-tudo",
             asteriscarCustom: false,
-            customCharacter: "*",
+            custom: "*",
             palavras: [],
             textoFonte: "",
             textoResultante: null
@@ -126,7 +126,7 @@
 
                         for (var j = 0; j < x.valor.length; j++) {
                             if(this.asteriscarCustom)
-                                stringConvertida += this.customCharacter;
+                                stringConvertida += this.custom;
                             else
                                 stringConvertida += "*";
                         }
