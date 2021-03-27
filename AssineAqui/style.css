@@ -1,0 +1,72 @@
+html {
+    font-family: signature2;
+    background-image: url(_imgs/bg2.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    text-shadow: 4px 4px 4px #000000;
+}
+
+button {
+    font-family: monospace;
+    background: url(_imgs/bg2.jpg);
+    background-position: center;
+    border: transparent;
+    font-weight: 500;
+    color: white;
+    text-shadow: 2px 2px 3px #000000;
+    box-shadow: 9px 10px 12px #000000;
+}
+
+/*#quadro {
+    width: 45em;
+    height: 15em;
+}*/
+
+@media screen and (orientation: portrait) {
+
+    #apresentacao2,
+    #quadro,
+    #salvar,
+    #apagar {
+        opacity: 0;
+    }
+}
+
+/* For landscape, we want the tool bar stick on the left */
+
+@media screen and (orientation: landscape) {
+    #quadro {
+        /*width: 45em;
+        height: 15em;*/
+        border-radius: 2em;
+    }
+
+    #apresentacao1 {
+        position: absolute;
+        opacity: 0;
+    }
+
+    button {
+        border-radius: 0.5em;
+        width: 8em;
+        height: 4.5em;
+    }
+}
+
+@font-face {
+    font-family: signature;
+    src: url(_fonts/youthness/Youthness_Regular_Demo.ttf);
+}
+
+@font-face {
+    font-family: signature2;
+    src: url(_fonts/jamscript/Jamscript_TRIAL.ttf)
+}
