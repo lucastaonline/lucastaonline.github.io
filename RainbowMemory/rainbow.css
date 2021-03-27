@@ -1,0 +1,54 @@
+body {
+    background: url("_imgs/bg.jpg");
+    padding: 10px;
+    font-family: RainbowFont;
+    text-align: center;
+}
+
+#title {
+    width: 25em;
+    display: inline-block;
+    font-size: 3em;
+    text-shadow: -3px 2px 2px #83837b;
+    background: white;
+    border-radius: 4px;
+    padding: 0.3em;
+    box-shadow: 7px 7px 7px;
+    align-self: center;
+}
+
+#titulo {
+    float: left;
+}
+
+#Tentativas , #Acertos {
+    float: right;
+    margin: 0em .1em;
+}
+
+img {
+    width: 11em;
+    border-radius: 5px;
+    margin-top: 7.5em;
+    opacity: 1;
+    transition: opacity 1s;
+    -webkit-transition: opacity 1s;
+}
+
+.cardcontainer {
+    display: inline-block;
+    overflow: hidden;
+    width: 11em;
+    height: 18em;
+    border-radius: 5px;
+    box-shadow: -3px 2px 2px #83837b;
+    background: black;
+    margin: .9em;    
+    transition: transform 2s;
+    -webkit-transition: transform 2s;
+}
+
+@font-face {
+    font-family: RainbowFont;
+    src: url(_font/scout-font-family/Scout\ Font\ Family/ScoutCond-Black.otf);
+}
