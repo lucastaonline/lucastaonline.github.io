@@ -1,0 +1,179 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="../content/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="./content/style.css">
+    <script src="../content/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/jquery.js"></script>
+    <script src="js/vue.min.js"></script>
+    <script src="js/fa-icons.js"></script>
+    <title>Ka Test</title>
+</head>
+
+<body>
+    <div class="py-5 text-center container">
+        <div class="row">
+            <h1 class="fw-light">Ka Test <i class="fas fa-heartbeat"></i><i class="fas fa-syringe"></i></h1>
+            <p class="lead text-muted">Verifique como está a sua saúde aqui. Este site identifica todo o tipo de vírus e doença. TOTALMENTE ONLINE! O resultado sai na hora!!!</p>
+            <p class="lead text-muted">Idealizado e desenvolvido por: Lucas Borges Pereira (Graças a Lirou Laupis) - 01/06/2021</p>
+            <p class="lead text-muted">Se quiser conhecer outros sites meus clica <a href="../index.html">aqui</a></p>
+        </div>
+    </div>
+
+    <div id="app" class="container">
+        <div class="bg-light p-5 rounded">
+            <div v-if="laudoAdquirido == false">
+                <div class="form-group mb-3">
+                    <label>Nome</label>
+                    <input class="form-control" v-model="nome" />
+                </div>
+                <div class="form-group mb-3">
+                    <label>Idade</label>
+                    <input class="form-control" v-model="idade" type="number" />
+                </div>
+                <div class="form-group mb-3">
+                    <label>Tipo Sanguíneo:</label>
+                    <select class="form-control" v-model="tipoSanguineo">
+                        <option>A+</option>
+                        <option>A-</option>
+                        <option>B+</option>
+                        <option>B-</option>
+                        <option>AB+</option>
+                        <option>AB-</option>
+                        <option>O+</option>
+                        <option>O-</option>
+                    </select>
+                </div>
+                <div class="form-group mb-3">
+                    <label>Altura</label>
+                    <input class="form-control" v-model="altura" type="number" />
+                </div>
+                <div class="form-group mb-3">
+                    <label>Qual seu gênero?</label>
+                    <div class="form-group">
+                        <input id="check-masculino" class="form-check-input" v-model="genero" type="radio" value="Masculino"/>
+                        <label class="form-check-label" for="masculino">
+                            Masculino
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <input id="check-feminino" class="form-check-input" v-model="genero" type="radio" value="Feminino"/>
+                        <label class="form-check-label" for="feminino">
+                            Feminino
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <input id="check-outro" class="form-check-input" v-model="genero" type="radio" value="Outro"/>
+                        <label class="form-check-label" for="check-outro">
+                            Outro
+                        </label>
+                    </div>
+                </div>
+                <button class="btn btn-primary" v-on:click="realizarExame">
+                    <span v-if="carregandoResultado">
+                        Realizando exame, mantenha-se {{ palavras.paradx }}...
+                        <i class="fas fa-spinner fa-spin"></i>
+                    </span>
+                    <span v-else>
+                        Realizar exame
+                    </span>
+                </button>
+            </div>
+            <div v-else>
+                <div>
+                    <h2>O SEU RESULTADO SAIU E ELE É PREOCUPANTE!! 😱😱😱😱</h2>
+
+                    <p>
+                        {{ nome }}, após feita uma análise do nível mais complexo e utilizando a tecnologia de ponta do Ka Test você foi diagnósticado com o {{ palavras.gostosx2 }}-Vírus. 😔😔😔😔😔
+                    </p>
+                    <p>Por ter o tipo sanguíneo {{ tipoSanguineo }}, que no ramo médico também é conhecido como coágulo gostosinicus, você está no grupo de risco! 🚨⚠️</p>
+                    <p>O fato de {{ altura }} ser a altura de {{ palavras.umx }} GRANDE {{ palavras.gostosx3 }} ainda piora sua situação! 😥😥</p>
+                    <p>Mas não se preocupe! Isso tem solução. 😁😁</p>
+                    <p>Para salvar a sua vida você deve beijar imediatamente a pessoa que te mandou isso. Faça isso o quanto antes!!!!!!!!!! 🏃🏃‍♀️</p>
+                    <p>Com {{ idade }} anos você corre um grande risco, então você não pode perder tempo. ⚠️⚠️⚠️⚠️</p>
+                    <p>Beba bastante água e beije muito a pessoa que te mandou e só assim você estará a salvo.</p>
+                    <p>Diagnóstico finalizado e certificado pelo Ministério da Saúde.</p>
+                </div>
+                
+                <button class="btn btn-primary" v-on:click="laudoAdquirido = false">Realizar exame novamente</button>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            nome: "",
+            idade: 0,
+            tipoSanguineo: "A+",
+            altura: 0,
+            genero: null,
+            laudoAdquirido: false,
+            carregandoResultado: false,
+            palavras: {
+                "paradx": "paradx",
+                "gostosx1": "gostosx",
+                "gostosx2": "Gostosx",
+                "gostosx3": "GOSTOSX",
+                "umx": "umx"
+            }
+        },
+        mounted: function () {
+            var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+            var toastList = toastElList.map(function (toastEl) {
+                return new bootstrap.Toast(toastEl)
+            })
+
+            console.log("%cIdealizado e desenvolvido por: Lucas Borges Pereira (Graças a Lirou Laupis) - 01/06/2021", 'background: #000000; color: #00ff08');
+            console.log("%cTrabalho atualmente como analista de sistemas. O pai é quente!", 'background: #000000; color: #00ff08');
+            console.log("%cSe gostou do app e quer me fazer um agrado me manda um Pix: b8ad3556-7fa7-467c-865b-b9f798bdfa99", 'background: #000000; color: #00ff08');
+        },
+        methods: {
+            realizarExame: function () {
+                if(this.idade <= 0) {
+                    alert("Você não tem 0 anos de idade né (ou menos que isso)... Preenche direito isso.");
+                    return;
+                }
+                if(this.altura <= 0) {
+                    alert("0 de altura? (ou menos que isso?) Eu creio que não...");
+                    return;
+                }
+                if(this.genero == null || this.nome == null || this.nome == "") {
+                    alert("Você precisa preencher todos os campos corretamente para que o diagnóstico seja preciso!");
+                    return;
+                }
+                if(this.genero == "Feminino") {
+                    this.palavras.paradx = "parada";
+                    this.palavras.gostosx1 = "gostosa";
+                    this.palavras.gostosx2 = "Gostosa";
+                    this.palavras.gostosx3 = "GOSTOSA";
+                    this.palavras.umx = "uma";
+                }
+                else if(this.genero == "Masculino") {
+                    this.palavras.paradx = "parado";
+                    this.palavras.gostosx1 = "Gostoso";
+                    this.palavras.gostosx2 = "Gostoso";
+                    this.palavras.gostosx3 = "GOSTOSO";
+                    this.palavras.umx = "um";
+                }
+                    
+
+                alert(`Durante a realização do exame é necessário que você se mantenha ${this.palavras.paradx} durante o exame para que o diagnóstico seja efetivo. NÃO SE MOVA ATÉ O RESULTADO SAIR!`);
+                
+                this.carregandoResultado = true;
+
+                setTimeout(() => {
+                    this.laudoAdquirido = true;
+                    this.carregandoResultado = false;
+                }, 5000);
+            },
+            realizarExameNovamente: function () {
+                this.carregandoResultado = false;
+                this.laudoAdquirido = false;
+            }
+        }
+    })
+</script>
+
+</html>
