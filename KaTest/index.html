@@ -84,7 +84,7 @@
                     <h2>O SEU RESULTADO SAIU E ELE É PREOCUPANTE!! 😱😱😱😱</h2>
 
                     <p>
-                        {{ nome }}, após feita uma análise do nível mais complexo e utilizando a tecnologia de ponta do Ka Test você foi diagnósticado com o {{ palavras.gostosx2 }}-Vírus. 😔😔😔😔😔
+                        {{ nome }}, após feita uma análise do nível mais complexo e utilizando a tecnologia de ponta do Ka Test você foi {{ palavras.diagnosticadx }} com o {{ palavras.gostosx2 }}-Vírus. 😔😔😔😔😔
                     </p>
                     <p>Por ter o tipo sanguíneo {{ tipoSanguineo }}, que no ramo médico também é conhecido como coágulo gostosinicus, você está no grupo de risco! 🚨⚠️</p>
                     <p>O fato de {{ altura }} ser a altura de {{ palavras.umx }} GRANDE {{ palavras.gostosx3 }} ainda piora sua situação! 😥😥</p>
@@ -116,7 +116,8 @@
                 "gostosx1": "gostosx",
                 "gostosx2": "Gostosx",
                 "gostosx3": "GOSTOSX",
-                "umx": "umx"
+                "umx": "umx",
+                "diagnosticadx": "diagnosticadx"
             }
         },
         mounted: function () {
@@ -149,6 +150,7 @@
                     this.palavras.gostosx2 = "Gostosa";
                     this.palavras.gostosx3 = "GOSTOSA";
                     this.palavras.umx = "uma";
+                    this.palavras.diagnosticadx = "diagnosticada";
                 }
                 else if(this.genero == "Masculino") {
                     this.palavras.paradx = "parado";
@@ -156,10 +158,11 @@
                     this.palavras.gostosx2 = "Gostoso";
                     this.palavras.gostosx3 = "GOSTOSO";
                     this.palavras.umx = "um";
+                    this.palavras.diagnosticadx = "diagnosticado";
                 }
                     
 
-                alert(`Durante a realização do exame é necessário que você se mantenha ${this.palavras.paradx} durante o exame para que o diagnóstico seja efetivo. NÃO SE MOVA ATÉ O RESULTADO SAIR!`);
+                alert(`Durante a realização do exame é necessário que você se mantenha ${this.palavras.paradx} para que o diagnóstico seja efetivo. NÃO SE MOVA ATÉ O RESULTADO SAIR!`);
                 
                 this.carregandoResultado = true;
 
