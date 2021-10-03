@@ -57,7 +57,8 @@
                         </ul>
                         <div class="card-body">
                             <button id="legal" type="button" class="btn btn-primary" data-toggle="popover"
-                                data-trigger="focus" title="Caramba!"
+                                data-trigger="focus" 
+                                data-original-title="Caramba!"
                                 data-content="Você é muito estiloso mesmo😎">
                                 Clique aqui se você tem estilo!
                                 </a>
@@ -74,8 +75,7 @@
 </html>
 
 <script>
-    var is_touch_device = ("ontouchstart" in window) || window.DocumentTouch && document instanceof DocumentTouch;
     $('#legal').popover({
-        trigger: is_touch_device ? "click" : 'focus'
+        trigger: 'focus'
     })
 </script>
