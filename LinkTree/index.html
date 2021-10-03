@@ -74,7 +74,8 @@
 </html>
 
 <script>
+    var is_touch_device = ("ontouchstart" in window) || window.DocumentTouch && document instanceof DocumentTouch;
     $('#legal').popover({
-        trigger: 'focus'
+        trigger: is_touch_device ? "click" : 'focus'
     })
 </script>
