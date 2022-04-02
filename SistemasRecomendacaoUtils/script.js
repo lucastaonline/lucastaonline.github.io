@@ -4,4 +4,7 @@ window.onload = function () {
 
     var elem = document.querySelector('#codelab-nav-buttons');
     elem.parentNode.removeChild(elem);
+
+    elem = document.querySelector('#codelab-feedback');
+    elem.parentNode.removeChild(elem);
 }
