@@ -3,15 +3,17 @@
   "format": "html",
   "prefix": "https://storage.googleapis.com",
   "mainga": "UA-49880327-14",
-  "updated": "2022-04-02T20:28:43Z",
+  "updated": "2022-04-02T21:09:11Z",
   "id": "SistemasRecomendacao",
   "duration": 0,
   "title": "Filtragem colaborativa na prática (Python)",
-  "authors": "Lucas Borges pereira",
+  "authors": "Lucas Borges Pereira",
   "summary": "Neste codelab você irá desenvolver exercícios para fixar os algoritmos de filtragem colaborativa.",
   "source": "1uEAeAuL9wg2mPz7DEttUeXZ45O7HlkPxx7rELQ6Vlxg",
   "theme": "web",
-  "status": null,
+  "status": [
+    "hidden"
+  ],
   "category": [
     "web"
   ],
