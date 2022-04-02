@@ -28,7 +28,8 @@
                   feedback-link="">
     
       <google-codelab-step label="Sobre este Codelabs" duration="0">
-        <h2 is-upgraded>Workshop de Sistemas de Recomendação com filtragem colaborativa</h2>
+        <p class="image-container"><img style="width: 924.41px" src="img\\341441c25ab39a5b"></p>
+<h2 is-upgraded>Workshop de Sistemas de Recomendação com filtragem colaborativa</h2>
 <p>Este codelabs é destinado à parte prática do Workshop de Sistemas de Recomendação com filtragem colaborativa.</p>
 <p>Todos os passos a seguir estão fortemente atrelados ao slide de apresentação.<br>Se você ainda não viu o slide ele pode ser acessado através deste link.</p>
 
@@ -36,7 +37,14 @@
       </google-codelab-step>
     
       <google-codelab-step label="Entendendo um pouco de Python" duration="0">
-        <h2 is-upgraded>O que é Python?</h2>
+        <pre><code>esse_workshop_eh_muito_bom = True
+
+if esse_workshop_eh_muito_bom:
+    print(&#39;Nota máxima pra esses alunos aí hein?&#39;)
+else:
+    print(&#39;Tava no celular e não prestou atenção né...&#39;)
+</code></pre>
+<h2 is-upgraded>O que é Python?</h2>
 <p>O Python é uma linguagem de programação de alto nível dinâmica, interpretada, modular, multiplataforma e orientada a objetos e blá blá blá. A maioria de vocês já deve conhecer Python se está aqui, afinal estamos estudando um algoritmo de sistema de recomendação. O Python é uma linguagem amplamente utilizada no mercado de trabalho nos anos atuais e se você não é nem um pouco familiarizado com ela, você pode checar esse guia para iniciantes.</p>
 <h2 is-upgraded>Por que Python?</h2>
 <p>Nós escolhemos o Python por considerarmos uma linguagem de fácil compreensão e aprendizado (<em>falando do básico é claro...</em>).</p>
@@ -51,29 +59,49 @@
       </google-codelab-step>
     
       <google-codelab-step label="Preciso montar meu ambiente em Python?" duration="0">
-        <h2 is-upgraded>Vou ter que me estressar configurando um ambiente pra esse workshop?</h2>
+        <p class="image-container"><img style="width: 601.70px" src="img\\30660f20b6962bab"></p>
+<h2 is-upgraded>Vou ter que me estressar configurando um ambiente pra esse workshop?</h2>
 <p>Este workshop está sendo realizado em meio à pandemia do Coronavírus em 2022. Todos estão participando de suas próprias casas.</p>
 <p>Normalmente o Python necessita de uma pré-configuração de ambiente realizando a instalação do ambiente para que o código possa ser compilado e posteriormente interpretado. </p>
 <p>Pensando nisso trouxemos uma solução.</p>
 <h2 is-upgraded>Replit</h2>
+<p class="image-container"><img style="width: 601.70px" src="img\\e2a18cf56e39e1b3"></p>
+<p>O replit é uma IDE completamente gratuita que pode ser utilizada para desenvolvimento de programas no próprio browser (<em>exatamente, não precisa baixar nada!</em>)</p>
+<p>Basta clicar <a href="https://replit.com/" target="_blank">aqui</a> para acessar o link, criar sua conta e começar a fazer seus próprios códigos.</p>
+<p>Vale ressaltar que você pode conectar com suas contas de outras plataformas (Google, Github e Facebook).</p>
+<p class="image-container"><img style="width: 356.00px" src="img\\6fddbe3921f18bde"></p>
+<p>Depois de criar sua conta, basta criar um replit de Python e estamos prontos para começar.</p>
 
 
       </google-codelab-step>
     
-      <google-codelab-step label="Distância de Manhattan" duration="0">
-        <p>Explicando novamente o algorítmo</p>
+      <google-codelab-step label="Passo-a-passo para um sistema de recomendação" duration="0">
+        <p class="image-container"><img style="width: 427.00px" src="img\\48724c04597dc92c"></p>
+<p>Para fixar o que foi mostrado nos slides vamos revisar quais os passos para fazer um sistema de recomendação com filtragem colaborativa.</p>
+<ol type="1" start="1">
+<li>Receber um usuário A para recomendar conteúdo.</li>
+<li>Buscar um usuário (vizinho/usuário B) com um alto grau de semelhança utilizando o cálculo de similaridade.</li>
+<li>Verificar conteúdos que foram consumidos pelo usuário B e não foram consumidos pelo usuário A.</li>
+<li>Recomendar os conteúdos que ainda não foram assistidos pelo usuário A e que o usuário B deu um bom feedback.</li>
+</ol>
 
 
       </google-codelab-step>
     
-      <google-codelab-step label="Calcule o vizinho mais próximo" duration="0">
+      <google-codelab-step label="Calculando similaridade entre usuários através da distância de Manhattan (Problema exemplo)" duration="0">
+        <p>Mostrar como calcular a distância entre dois usuários usando a distância e Manhattan.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Calcule o vizinho mais próximo (Problema 1)" duration="0">
         <p>Dada uma matriz de usuários e avaliações (virá no enunciado), calcule o vizinho mais próximo de um usuário X com as mesmas avaliações da matriz.</p>
 <p>Dica: utilize a distância de Manhattan para o cálculo.</p>
 
 
       </google-codelab-step>
     
-      <google-codelab-step label="Desenvolvendo um sistema de recomendação" duration="0">
+      <google-codelab-step label="Desenvolvendo um sistema de recomendação (Problema 2)" duration="0">
         <p>Dada uma matriz de usuários e avaliações (virá no enunciado), crie um programa que recebe o nome de um dos usuários dessa matriz e retorna uma lista de recomendações ordenada.</p>
 
 
