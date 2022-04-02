@@ -3,8 +3,8 @@
   "format": "html",
   "prefix": "https://storage.googleapis.com",
   "mainga": "UA-49880327-14",
-  "updated": "2022-04-02T21:12:12Z",
-  "id": "./",
+  "updated": "2022-04-02T21:55:59Z",
+  "id": "SistemasRecomendacao",
   "duration": 0,
   "title": "Filtragem colaborativa na prática (Python)",
   "authors": "Lucas Borges Pereira",
@@ -16,5 +16,5 @@
     "web"
   ],
   "tags": [],
-  "url": "./"
+  "url": "SistemasRecomendacao"
 }
