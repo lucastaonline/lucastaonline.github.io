@@ -7,4 +7,7 @@ window.onload = function () {
 
     elem = document.querySelector('#codelab-feedback');
     elem.parentNode.removeChild(elem);
+
+    elem = document.querySelector('#done');
+    elem.parentNode.removeChild(elem);
 }
