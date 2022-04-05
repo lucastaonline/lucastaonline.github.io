@@ -88,7 +88,7 @@ else:
 
       </google-codelab-step>
     
-      <google-codelab-step label="Calculando similaridade entre usuários através da distância de Manhattan" duration="0">
+      <google-codelab-step label="Calculando similaridade entre usuários" duration="0">
         <h2 is-upgraded>O problema de Rogerinho</h2>
 <p>Rogerinho é um analista de sistemas que trabalha na equipe de desenvolvimento do Filmes Piratões, uma plataforma honesta de streaming de filmes.</p>
 <p>O site define o perfil de cada usuário a partir de uma tabela de avaliação padrão, mas recentemente o sistema de teste de similaridade do sistema de recomendação do Filmes Piratões quebrou e Rogerinho precisa fazer um programa que retorne o usuário mais similar ao novo usuário inserido no site.</p>
@@ -121,19 +121,19 @@ else:
 <p>O programa deve receber uma string X representando o nome do novo usuário do sistema seguidos de três números de ponto flutuante A, B e C que representam as avaliações dos filmes &#34;Homem Tarântula: Sem volta pra toca&#34;, &#34;Harry Wesley e a Rocha da Filosofia&#34; e &#34;O senhor dos brincos: A sociedade do Brinco&#34;, respectivamente.</p>
 <h2 is-upgraded>Saída</h2>
 <p>O programa deve exibir o texto &#34;O usuário X tem um perfil similar ao do usuário Y.&#34;, em que X é o nome do usuário novo e Y é o usuário mais similar da tabela de avaliação.</p>
-<h2 is-upgraded>Exemplos:</h2>
+<h2 is-upgraded>Exemplos</h2>
 <table>
 <tr><td colspan="1" rowspan="1"><p><strong>Entrada</strong></p>
 </td><td colspan="1" rowspan="1"><p><strong>Saída</strong></p>
 </td></tr>
-<tr><td colspan="1" rowspan="1"><p>ZoroDasEspada 2.5 3.2 3.3</p>
-</td><td colspan="1" rowspan="1"><p>O usuário ZoroDasEspada tem um perfil similar ao do usuário Kuririn21.</p>
+<tr><td colspan="1" rowspan="1"><p><code>ZoroDasEspada 2.5 3.2 3.3</code></p>
+</td><td colspan="1" rowspan="1"><p><code>O usuário ZoroDasEspada tem um perfil similar ao do usuário Kuririn21.</code></p>
 </td></tr>
-<tr><td colspan="1" rowspan="1"><p>SoltadorDeBeibleide 1.2 1.1 2.2</p>
-</td><td colspan="1" rowspan="1"><p>O usuário SoltadorDeBeibleide tem um perfil similar ao do usuário SasukeEmo.</p>
+<tr><td colspan="1" rowspan="1"><p><code>SoltadorDeBeibleide 1.2 1.1 2.2</code></p>
+</td><td colspan="1" rowspan="1"><p><code>O usuário SoltadorDeBeibleide tem um perfil similar ao do usuário SasukeEmo.</code></p>
 </td></tr>
-<tr><td colspan="1" rowspan="1"><p>IuGuiOh 4.3 4.5 2.2</p>
-</td><td colspan="1" rowspan="1"><p>O usuário IuGuiOh tem um perfil similar ao do usuário ShiryuCegueta.</p>
+<tr><td colspan="1" rowspan="1"><p><code>IuGuiOh 4.3 4.5 2.2</code></p>
+</td><td colspan="1" rowspan="1"><p><code>O usuário IuGuiOh tem um perfil similar ao do usuário ShiryuCegueta.</code></p>
 </td></tr>
 </table>
 <p><em>Dica: Utilize a Distância de Manhattan.</em></p>
@@ -209,7 +209,7 @@ programa()
       <google-codelab-step label="Exibindo possíveis recomendações" duration="0">
         <h2 is-upgraded>Os problemas de Rogerinho aumentaram</h2>
 <p>O Filmes Piratões está em meio a uma disputa judicial (<em>sabe-se lá porquê</em>) e por conta disso a empresa está enfrentando altos cortes. Com isso, o sistema de recomendação foi derrubado.</p>
-<p>Rogerinho precisa agora criar um programa que receba um usuário e suas avaliações e retorne uma lista com o nome dos 3 filmes que o usuário mais similar a ele na tabela de avaliação mais gostou.</p>
+<p>Para resolver temporariamente o problema do site, Rogerinho precisa agora criar um programa que receba um usuário com suas avaliações e retorne uma lista com o nome dos 3 filmes que o usuário mais similar a ele na tabela de avaliação mais gostou.</p>
 <h2 is-upgraded>Tabela de Avaliação</h2>
 <table>
 <tr><td colspan="1" rowspan="1"><p><strong>Usuários/Filmes</strong></p>
@@ -257,31 +257,57 @@ programa()
 </table>
 <h2 is-upgraded>Entrada</h2>
 <p>O programa deve receber uma string X representando o nome do novo usuário do sistema seguidos de três números de ponto flutuante A, B e C,D e E que representam as avaliações dos filmes &#34;Homem Tarântula: Sem volta pra toca&#34;, &#34;Harry Wesley e a Rocha da Filosofia&#34;, &#34;O senhor dos brincos: A sociedade do Brinco&#34;, &#34;Catman: O Gatinho das trevas&#34; e &#34;Earth Wars: O despertar da Fraqueza&#34;, respectivamente.</p>
-<h2 is-upgraded>Saída:</h2>
+<h2 is-upgraded>Saída</h2>
 <p>A saída deve exibir o texto:</p>
-<p>&#34;Três filmes que o usuário X possívelmente gostou/gostará:</p>
+<p>&#34;O usuário Y destes três filmes então o usuário X possívelmente gostou/gostará::</p>
 <p>- A</p>
 <p>- B</p>
 <p>- C</p>
-<p>&#34;, em que X é o nome do novo usuário e A, B e C são os filmes que o usuário mais similar gostou mais.</p>
-<h2 is-upgraded>Exemplos:</h2>
+<p>&#34;, em que X é o nome do novo usuário, Y é o nome do usuário mais similar encontrado e A, B e C são os filmes que o usuário mais similar gostou mais.</p>
+<h2 is-upgraded>Exemplos</h2>
 <table>
 <tr><td colspan="1" rowspan="1"><p><strong>Entrada</strong></p>
 </td><td colspan="1" rowspan="1"><p><strong>Saída</strong></p>
 </td></tr>
-<tr><td colspan="1" rowspan="1"><p>Neymarzete 2.5 3.2 3.3 5.0 4.3</p>
-</td><td colspan="1" rowspan="1"></td></tr>
-<tr><td colspan="1" rowspan="1"><p>LiLiKantOh 1.2 1.1 2.2 3.4 4.0</p>
-</td><td colspan="1" rowspan="1"></td></tr>
+<tr><td colspan="1" rowspan="1"><p><code>Neymarzete 2.5 3.2 3.3 5.0 4.3</code></p>
+</td><td colspan="1" rowspan="1"><p><code>O usuário AshDeJuliet destes três filmes então o usuário Neymarzete possívelmente gostou/gostará:</code></p>
+<p><code>- Harry Wesley e a Rocha da Filosofia</code></p>
+<p><code>- Catman: O Gatinho das trevas</code></p>
+<p><code>- Homem Tarântula: Sem volta pra toca</code></p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p><code>LiLiKantOh 1.2 1.1 2.2 3.4 4.0</code></p>
+</td><td colspan="1" rowspan="1"><p><code>O usuário SasukeEmo destes três filmes então o usuário LiLiKantOh possívelmente gostou/gostará:</code></p>
+<p><code>- O senhor dos brincos: A sociedade do Brinco</code></p>
+<p><code>- Earth Wars: O despertar da Fraqueza</code></p>
+<p><code>- Harry Wesley e a Rocha da Filosofia</code></p>
+</td></tr>
 </table>
+<p><em>Dica: Utilize o código do primeiro problema como base.</em></p>
 
 
       </google-codelab-step>
     
-      <google-codelab-step label="Desenvolvendo um sistema de recomendação (Problema 2)" duration="0">
+      <google-codelab-step label="Desenvolvendo um sistema de recomendação" duration="0">
         <h2 is-upgraded>A emancipação de Rogerinho</h2>
 <p>Rogerinho decidiu sair do Filmes Piratões e pretende montar seu próprio negócio. Um sistema de recomendação de filmes.</p>
 <p>Ele decidiu criar um sistema que recebe uma tabela de avaliação e em seguida analisar as avaliações do usuário para retornar uma lista de recomendação de filmes que ele ainda não assistiu.</p>
+<p><strong><em>Observação: Você deve considerar que nem sempre o usuário avaliou todos os filmes da tabela de avaliação.</em></strong></p>
+<h2 is-upgraded>Entrada</h2>
+<p>A entrada aqui.</p>
+<p><strong><em>Observação: Para que o sistema funcione corretamente é garantido que o número de avaliações do usuário sempre será igual ao número de filmes na tabela de avaliações.</em></strong></p>
+<h2 is-upgraded>Saída</h2>
+<p>A saída né...</p>
+<h2 is-upgraded>Exemplos</h2>
+<p>Essa parte é insuportável de fazer pqp</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Obrigado pela participação!" duration="0">
+        <h2 is-upgraded>Você chegou ao final do workshop!</h2>
+<p>Agora você está preparado para seguir em frente com os estudos relacionados a filtros colaborativos.</p>
+<p>Cheque algumas de nossas referências no slide mencionado na primeira página deste workshop e também nas nossas referências para a parte prática do workshop.</p>
+<p>Obrigado a todos.</p>
 
 
       </google-codelab-step>
@@ -307,6 +333,7 @@ programa()
   <script src="https://storage.googleapis.com/codelab-elements/prettify.js"></script>
   <script src="https://storage.googleapis.com/codelab-elements/codelab-elements.js"></script>
   <script src="//support.google.com/inapp/api.js"></script>
+  <script src="../SistemasRecomendacaoUtils/script.js"></script>
 
 </body>
 </html>

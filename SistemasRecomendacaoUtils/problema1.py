@@ -20,8 +20,8 @@ tabela_avaliacao = {
 
 def manhattan(usuario_um,usuario_dois):
     distancia = abs(usuario_um["Homem Tarântula: Sem volta pra toca"] - usuario_dois["Homem Tarântula: Sem volta pra toca"])
-    - abs(usuario_um["Harry Wesley e a Rocha da Filosofia"] - usuario_dois["Harry Wesley e a Rocha da Filosofia"])
-    - abs(usuario_um["O senhor dos brincos: A sociedade do Brinco"] - usuario_dois["O senhor dos brincos: A sociedade do Brinco"])
+    + abs(usuario_um["Harry Wesley e a Rocha da Filosofia"] - usuario_dois["Harry Wesley e a Rocha da Filosofia"])
+    + abs(usuario_um["O senhor dos brincos: A sociedade do Brinco"] - usuario_dois["O senhor dos brincos: A sociedade do Brinco"])
 
     return distancia
 
