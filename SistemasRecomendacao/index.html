@@ -88,21 +88,200 @@ else:
 
       </google-codelab-step>
     
-      <google-codelab-step label="Calculando similaridade entre usuários através da distância de Manhattan (Problema exemplo)" duration="0">
-        <p>Mostrar como calcular a distância entre dois usuários usando a distância e Manhattan.</p>
+      <google-codelab-step label="Calculando similaridade entre usuários através da distância de Manhattan" duration="0">
+        <h2 is-upgraded>O problema de Rogerinho</h2>
+<p>Rogerinho é um analista de sistemas que trabalha na equipe de desenvolvimento do Filmes Piratões, uma plataforma honesta de streaming de filmes.</p>
+<p>O site define o perfil de cada usuário a partir de uma tabela de avaliação padrão, mas recentemente o sistema de teste de similaridade do sistema de recomendação do Filmes Piratões quebrou e Rogerinho precisa fazer um programa que retorne o usuário mais similar ao novo usuário inserido no site.</p>
+<p>O programa de Rogerinho deve receber um usuário e suas avaliações para esses três principais filmes e deve retornar o nome do usuário com o que ele é mais similar.</p>
+<h2 is-upgraded>Tabela de avaliação</h2>
+<p>Todo o programa deve ser feito com base na tabela de avaliação abaixo.</p>
+<table>
+<tr><td colspan="1" rowspan="1"><p><strong>Usuários/Filmes</strong></p>
+</td><td colspan="1" rowspan="1"><p><strong>Homem Tarântula: Sem volta pra toca</strong></p>
+</td><td colspan="1" rowspan="1"><p><strong>Harry Wesley e a Rocha da Filosofia</strong></p>
+</td><td colspan="1" rowspan="1"><p><strong>O senhor dos brincos: A sociedade do Brinco</strong></p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p><strong>ShiryuCegueta</strong></p>
+</td><td colspan="1" rowspan="1"><p>4.5  ★</p>
+</td><td colspan="1" rowspan="1"><p>5.0 ★</p>
+</td><td colspan="1" rowspan="1"><p>2.0 ★</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p><strong>Kuririn21</strong></p>
+</td><td colspan="1" rowspan="1"><p>3.2 ★</p>
+</td><td colspan="1" rowspan="1"><p>1.5 ★</p>
+</td><td colspan="1" rowspan="1"><p>4.2 ★</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p><strong>SasukeEmo</strong></p>
+</td><td colspan="1" rowspan="1"><p>1.1 ★</p>
+</td><td colspan="1" rowspan="1"><p>2.1 ★</p>
+</td><td colspan="1" rowspan="1"><p>3.2 ★</p>
+</td></tr>
+</table>
+<h2 is-upgraded>Entrada</h2>
+<p>O programa deve receber uma string X representando o nome do novo usuário do sistema seguidos de três números de ponto flutuante A, B e C que representam as avaliações dos filmes &#34;Homem Tarântula: Sem volta pra toca&#34;, &#34;Harry Wesley e a Rocha da Filosofia&#34; e &#34;O senhor dos brincos: A sociedade do Brinco&#34;, respectivamente.</p>
+<h2 is-upgraded>Saída</h2>
+<p>O programa deve exibir o texto &#34;O usuário X tem um perfil similar ao do usuário Y.&#34;, em que X é o nome do usuário novo e Y é o usuário mais similar da tabela de avaliação.</p>
+<h2 is-upgraded>Exemplos:</h2>
+<table>
+<tr><td colspan="1" rowspan="1"><p><strong>Entrada</strong></p>
+</td><td colspan="1" rowspan="1"><p><strong>Saída</strong></p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>ZoroDasEspada 2.5 3.2 3.3</p>
+</td><td colspan="1" rowspan="1"><p>O usuário ZoroDasEspada tem um perfil similar ao do usuário Kuririn21.</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>SoltadorDeBeibleide 1.2 1.1 2.2</p>
+</td><td colspan="1" rowspan="1"><p>O usuário SoltadorDeBeibleide tem um perfil similar ao do usuário SasukeEmo.</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>IuGuiOh 4.3 4.5 2.2</p>
+</td><td colspan="1" rowspan="1"><p>O usuário IuGuiOh tem um perfil similar ao do usuário ShiryuCegueta.</p>
+</td></tr>
+</table>
+<p><em>Dica: Utilize a Distância de Manhattan.</em></p>
 
 
       </google-codelab-step>
     
-      <google-codelab-step label="Calcule o vizinho mais próximo (Problema 1)" duration="0">
-        <p>Dada uma matriz de usuários e avaliações (virá no enunciado), calcule o vizinho mais próximo de um usuário X com as mesmas avaliações da matriz.</p>
-<p>Dica: utilize a distância de Manhattan para o cálculo.</p>
+      <google-codelab-step label="Problema de Rogerinho (Solução)" duration="0">
+        <pre><code>import math
+
+tabela_avaliacao = {
+    &#34;ShiryuCegueta&#34;: {
+        &#34;Homem Tarântula: Sem volta pra toca&#34;: 4.5,
+        &#34;Harry Wesley e a Rocha da Filosofia&#34;: 5.0,
+        &#34;O senhor dos brincos: A sociedade do Brinco&#34;: 2.0
+    },
+    &#34;Kuririn21&#34;: {
+        &#34;Homem Tarântula: Sem volta pra toca&#34;:  3.2,
+        &#34;Harry Wesley e a Rocha da Filosofia&#34;: 1.5,
+        &#34;O senhor dos brincos: A sociedade do Brinco&#34;: 4.2
+    },
+    &#34;SasukeEmo&#34;: {
+        &#34;Homem Tarântula: Sem volta pra toca&#34;: 1.1,
+        &#34;Harry Wesley e a Rocha da Filosofia&#34;: 2.1,
+        &#34;O senhor dos brincos: A sociedade do Brinco&#34;: 3.2
+    }
+}
+
+def manhattan(usuario_um,usuario_dois):
+    distancia = abs(usuario_um[&#34;Homem Tarântula: Sem volta pra toca&#34;] - usuario_dois[&#34;Homem Tarântula: Sem volta pra toca&#34;])
+    - abs(usuario_um[&#34;Harry Wesley e a Rocha da Filosofia&#34;] - usuario_dois[&#34;Harry Wesley e a Rocha da Filosofia&#34;])
+    - abs(usuario_um[&#34;O senhor dos brincos: A sociedade do Brinco&#34;] - usuario_dois[&#34;O senhor dos brincos: A sociedade do Brinco&#34;])
+
+    return distancia
+
+def calcular_usuario_mais_similar(avaliacoes_novo_usuario):
+    usuario_mais_similar = &#34;&#34;
+    distancia_menor = math.inf
+
+    for usuario in tabela_avaliacao:
+        distancia_usuarios = manhattan(avaliacoes_novo_usuario, tabela_avaliacao[usuario])
+
+        if(distancia_usuarios &lt; distancia_menor):
+            distancia_menor = distancia_usuarios
+            usuario_mais_similar = usuario
+
+    return usuario_mais_similar
+
+def programa():
+
+    linha = input()
+
+    valores_entrada = linha.split(&#34; &#34;)
+
+    nome_novo_usuario = valores_entrada[0]
+
+    avaliacoes_novo_usuario = {
+        &#34;Homem Tarântula: Sem volta pra toca&#34;: float(valores_entrada[1]),
+        &#34;Harry Wesley e a Rocha da Filosofia&#34;: float(valores_entrada[2]),
+        &#34;O senhor dos brincos: A sociedade do Brinco&#34;: float(valores_entrada[3])
+    }
+
+    usuario_mais_similar = calcular_usuario_mais_similar(avaliacoes_novo_usuario)
+
+    print(f&#34;O usuário {nome_novo_usuario} tem um perfil similar ao do usuário {usuario_mais_similar}.&#34;)
+
+programa()
+</code></pre>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Exibindo possíveis recomendações" duration="0">
+        <h2 is-upgraded>Os problemas de Rogerinho aumentaram</h2>
+<p>O Filmes Piratões está em meio a uma disputa judicial (<em>sabe-se lá porquê</em>) e por conta disso a empresa está enfrentando altos cortes. Com isso, o sistema de recomendação foi derrubado.</p>
+<p>Rogerinho precisa agora criar um programa que receba um usuário e suas avaliações e retorne uma lista com o nome dos 3 filmes que o usuário mais similar a ele na tabela de avaliação mais gostou.</p>
+<h2 is-upgraded>Tabela de Avaliação</h2>
+<table>
+<tr><td colspan="1" rowspan="1"><p><strong>Usuários/Filmes</strong></p>
+</td><td colspan="1" rowspan="1"><p><strong>Homem Tarântula: Sem volta pra toca</strong></p>
+</td><td colspan="1" rowspan="1"><p><strong>Harry Wesley e a Rocha da Filosofia</strong></p>
+</td><td colspan="1" rowspan="1"><p><strong>O senhor dos brincos: A sociedade do Brinco</strong></p>
+</td><td colspan="1" rowspan="1"><p><strong>Catman: O Gatinho das trevas</strong></p>
+</td><td colspan="1" rowspan="1"><p><strong>Earth Wars: O despertar da Fraqueza</strong></p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p><strong>ShiryuCegueta</strong></p>
+</td><td colspan="1" rowspan="1"><p>4.5  ★</p>
+</td><td colspan="1" rowspan="1"><p>5.0 ★</p>
+</td><td colspan="1" rowspan="1"><p>2.0 ★</p>
+</td><td colspan="1" rowspan="1"><p>4.4★</p>
+</td><td colspan="1" rowspan="1"><p>3.3★</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p><strong>Kuririn21</strong></p>
+</td><td colspan="1" rowspan="1"><p>3.2 ★</p>
+</td><td colspan="1" rowspan="1"><p>1.5 ★</p>
+</td><td colspan="1" rowspan="1"><p>4.2 ★</p>
+</td><td colspan="1" rowspan="1"><p>3.1★</p>
+</td><td colspan="1" rowspan="1"><p>5.0★</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p><strong>SasukeEmo</strong></p>
+</td><td colspan="1" rowspan="1"><p>1.1 ★</p>
+</td><td colspan="1" rowspan="1"><p>2.1 ★</p>
+</td><td colspan="1" rowspan="1"><p>3.2 ★</p>
+</td><td colspan="1" rowspan="1"><p>0.5★</p>
+</td><td colspan="1" rowspan="1"><p>3.0★</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p><strong>AshDeJuliet</strong></p>
+</td><td colspan="1" rowspan="1"><p>2.0 ★</p>
+</td><td colspan="1" rowspan="1"><p>4.2 ★</p>
+</td><td colspan="1" rowspan="1"><p>1.1 ★</p>
+</td><td colspan="1" rowspan="1"><p>2.3 ★</p>
+</td><td colspan="1" rowspan="1"><p>1.0 ★</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p><strong>CarecaDaPorrada</strong></p>
+</td><td colspan="1" rowspan="1"><p>5.0 ★</p>
+</td><td colspan="1" rowspan="1"><p>4.2 ★</p>
+</td><td colspan="1" rowspan="1"><p>4.7 ★</p>
+</td><td colspan="1" rowspan="1"><p>1.0 ★</p>
+</td><td colspan="1" rowspan="1"><p>3.3 ★</p>
+</td></tr>
+</table>
+<h2 is-upgraded>Entrada</h2>
+<p>O programa deve receber uma string X representando o nome do novo usuário do sistema seguidos de três números de ponto flutuante A, B e C,D e E que representam as avaliações dos filmes &#34;Homem Tarântula: Sem volta pra toca&#34;, &#34;Harry Wesley e a Rocha da Filosofia&#34;, &#34;O senhor dos brincos: A sociedade do Brinco&#34;, &#34;Catman: O Gatinho das trevas&#34; e &#34;Earth Wars: O despertar da Fraqueza&#34;, respectivamente.</p>
+<h2 is-upgraded>Saída:</h2>
+<p>A saída deve exibir o texto:</p>
+<p>&#34;Três filmes que o usuário X possívelmente gostou/gostará:</p>
+<p>- A</p>
+<p>- B</p>
+<p>- C</p>
+<p>&#34;, em que X é o nome do novo usuário e A, B e C são os filmes que o usuário mais similar gostou mais.</p>
+<h2 is-upgraded>Exemplos:</h2>
+<table>
+<tr><td colspan="1" rowspan="1"><p><strong>Entrada</strong></p>
+</td><td colspan="1" rowspan="1"><p><strong>Saída</strong></p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>Neymarzete 2.5 3.2 3.3 5.0 4.3</p>
+</td><td colspan="1" rowspan="1"></td></tr>
+<tr><td colspan="1" rowspan="1"><p>LiLiKantOh 1.2 1.1 2.2 3.4 4.0</p>
+</td><td colspan="1" rowspan="1"></td></tr>
+</table>
 
 
       </google-codelab-step>
     
       <google-codelab-step label="Desenvolvendo um sistema de recomendação (Problema 2)" duration="0">
-        <p>Dada uma matriz de usuários e avaliações (virá no enunciado), crie um programa que recebe o nome de um dos usuários dessa matriz e retorna uma lista de recomendações ordenada.</p>
+        <h2 is-upgraded>A emancipação de Rogerinho</h2>
+<p>Rogerinho decidiu sair do Filmes Piratões e pretende montar seu próprio negócio. Um sistema de recomendação de filmes.</p>
+<p>Ele decidiu criar um sistema que recebe uma tabela de avaliação e em seguida analisar as avaliações do usuário para retornar uma lista de recomendação de filmes que ele ainda não assistiu.</p>
 
 
       </google-codelab-step>
@@ -128,7 +307,6 @@ else:
   <script src="https://storage.googleapis.com/codelab-elements/prettify.js"></script>
   <script src="https://storage.googleapis.com/codelab-elements/codelab-elements.js"></script>
   <script src="//support.google.com/inapp/api.js"></script>
-  <script src="../SistemasRecomendacaoUtils/script.js"></script>
 
 </body>
 </html>
