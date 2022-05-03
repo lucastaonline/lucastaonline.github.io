@@ -290,15 +290,39 @@ programa()
       <google-codelab-step label="Desenvolvendo um sistema de recomendação" duration="0">
         <h2 is-upgraded>A emancipação de Rogerinho</h2>
 <p>Rogerinho decidiu sair do Filmes Piratões e pretende montar seu próprio negócio. Um sistema de recomendação de filmes.</p>
-<p>Ele decidiu criar um sistema que recebe uma tabela de avaliação e em seguida analisar as avaliações do usuário para retornar uma lista de recomendação de filmes que ele ainda não assistiu.</p>
-<p><strong><em>Observação: Você deve considerar que nem sempre o usuário avaliou todos os filmes da tabela de avaliação.</em></strong></p>
+<p>Ele decidiu criar um sistema que recebe uma tabela de avaliação e em seguida analisa as avaliações do usuário para retornar uma lista de recomendação de filmes que ele ainda não assistiu.</p>
+<h2 is-upgraded>Regras (e condições para facilitar a resolução):</h2>
+<ul>
+<li>Nem sempre o usuário avaliou todos os filmes da tabela de avaliação.</li>
+<li>A avaliação do usuário sempre deverá ter pelo menos 2 filmes não assistidos (se não seria meio óbvio qual recomendar não é mesmo?)</li>
+<li>Considere que todos os usuários tenham assistido pelo menos um dos filmes que o usuário não assistiu e pelo menos um que o usuário tenha assistido.</li>
+</ul>
 <h2 is-upgraded>Entrada</h2>
-<p>A entrada aqui.</p>
+<p>O programa deve receber um inteiro N representando o número de linhas e colunas da tabela de avaliação.</p>
+<p>Em seguida, o programa receberá respectivamente os seguintes dados:</p>
+<ul>
+<li>N strings separadas por vírgula que representam o nome dos usuários que avaliaram os filmes.</li>
+<li>N strings separadas por vírgula representando o nome dos filmes.</li>
+<li>N linhas com N números de ponto flutuante que representam as avaliações dos filmes. (onde um hífen representa que o usuário não assistiu ao filme)</li>
+<li>N números de ponto flutuante que representam as avaliações do usuário do programa.</li>
+<li>No momento da recomendação priorize os filmes avaliados.</li>
+</ul>
 <p><strong><em>Observação: Para que o sistema funcione corretamente é garantido que o número de avaliações do usuário sempre será igual ao número de filmes na tabela de avaliações.</em></strong></p>
 <h2 is-upgraded>Saída</h2>
-<p>A saída né...</p>
+<p>A saída deve exibir uma string N representando a recomendação de um filme que o usuário não tenha assistido.</p>
 <h2 is-upgraded>Exemplos</h2>
-<p>Essa parte é insuportável de fazer pqp</p>
+<table>
+<tr><td colspan="1" rowspan="1"><p><code>4</code></p>
+<p><code>JorginDa12,PeachBros,BobPalhaDeAco,PolvoMolusco</code></p>
+<p><code>O senhor dos pastéis,Harry Porco,A culpa é dos meteoros,O Deus veste Gucci</code></p>
+<p><code>8.0 4.0 - 5.8</code></p>
+<p><code>3.0 9.0 - 5.0</code></p>
+<p><code>- 5.0 10 8.0</code></p>
+<p><code>- 10 - 3.0</code></p>
+<p><code>- - 10 7.2</code></p>
+</td><td colspan="1" rowspan="1"><p><code>Harry Porco</code></p>
+</td></tr>
+</table>
 
 
       </google-codelab-step>
@@ -333,7 +357,6 @@ programa()
   <script src="https://storage.googleapis.com/codelab-elements/prettify.js"></script>
   <script src="https://storage.googleapis.com/codelab-elements/codelab-elements.js"></script>
   <script src="//support.google.com/inapp/api.js"></script>
-  <script src="../SistemasRecomendacaoUtils/script.js"></script>
 
 </body>
 </html>
