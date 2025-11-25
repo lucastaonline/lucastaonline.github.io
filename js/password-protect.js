@@ -10,10 +10,7 @@
 
 async function checkPassword() {
     // Hash SHA-256 da senha - Para gerar novo hash, abra gerar-hash.html
-    const SENHA_HASH = '9a260ff2a578df8ec79cdd237b79987f6b7ce8b2572cf0eb355a82803dc9c02f';
-
-    // Esconde o conteúdo
-    document.body.style.visibility = 'hidden';
+    const SENHA_HASH = '66ecb01534a2a0219797a77690563122179fde953a49c491d68c8c88be3cdd07';
 
     // Verifica se já foi autenticado nesta sessão
     if (sessionStorage.getItem('autenticado') === 'sim') {
